@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class SumDigits {
 	public static int[] getDigits(int in) {		
-		int length = (int)(Math.log10(in)+1); //(Log base 10 of input) + 1 gives the total number of digits in a number.
+		int length = Math.abs((int)(Math.log10(in)+1)); //(Log base 10 of input) + 1 gives the total number of digits in a number, absolute value prevents negative array length.
 		int[] out = new int[length+1]; //Define an array that can comfortably hold the digits of the number.
 		for(int i = 0; i<length; i++){ //loop across the number's digits.
 			out[i] = in%10; //Extract the Ith digit
