@@ -9,7 +9,6 @@ public class SumDigits {
 			in /= 10; //and remove it.
 		}
 		return out; //return the int array of digits.
-
 	}
 	public static int sumDigits(int[] in) {
 		int answer=0;
@@ -26,6 +25,21 @@ public class SumDigits {
 		System.out.println(Integer.MAX_VALUE +": " + sumDigits(getDigits(Integer.MAX_VALUE))); //2^31-1
 	}
 	public static void main(String[] args) {
-		test(); //run the test method.
+		java.util.scanner s = new Scanner(System.in);
+		while(true) {
+			System.out.println("Input a number between 1 and " + Integer.MAX_VALUE);
+			int input = s.nextInt();
+			int length = Math.abs((int)(Math.log10(input)+1));
+			int[] out = new int[length];
+			for(int i = 0; i<length; i++){
+				out[i] = input%10;
+				input /= 10;
+			}
+			int answer = 0;
+			for(int i : input) {
+				answer += i;
+			}
+			System.out.println("The sum of the digits of " + input + "is " + answer);
+		}
 	}
 }
