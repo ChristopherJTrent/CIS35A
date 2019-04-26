@@ -1,0 +1,42 @@
+@startuml
+start
+partition initialization {
+:define variables (Item Quantities, exit flag, Scanner);
+:define constants (coin values, prices, item list);
+}
+repeat	
+	partition User_Input {
+	:Get "coins" from user;
+	:Calculate total credit;
+	:Display options to user;
+	:Get User Selection;
+	}
+	partition Business_Logic {
+		if (User Wishes to Exit?) then (yes)
+			:Refund remaining credit;
+			stop
+		else (no)
+		endif
+		if (Is selection valid?) then (no)
+			:Inform user;
+		else (yes) 
+			if (Is Selection Available?) then (yes)
+			if (Exact Change?) then (yes)
+				:Dispense item;
+				:Decrement item stock;
+			elseif (Overpaid?) then (yes)
+				:Calculate remaining credit;
+				:Dispense Item and inform 
+				user of remaining credit;
+				:Decrement Item Stock;
+			else (Insufficient Payment)
+				:Inform user;
+			endif
+		else (no)
+			:Inform user;
+		endif
+		endif
+	}
+repeat while (Program Continues) 
+	
+@enduml
