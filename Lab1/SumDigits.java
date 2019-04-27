@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-
 public class SumDigits {
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		//prep code
 		java.util.Scanner s = new java.util.Scanner(System.in); //Define a Scanner
 		//business logic
@@ -28,5 +27,27 @@ public class SumDigits {
 		}
 		//resource management
 		s.close(); //Prevent resource leaks.
+=======
+		java.util.Scanner userInput = new java.util.Scanner(System.in);
+		while(true){
+			System.out.println("Input a positive number to get the sum of its digits. Input 0 to exit, or 1 to run the test values.");
+			try{
+				int input = userInput.nextInt();
+				if(input == 0) {
+					break;
+				} 
+				else if (input == 1) {
+					test();
+					break;
+				} else {
+					System.out.println("The sum of the digits of "+input+" is: "+ sumDigits(getDigits(input)));
+				}
+			} catch (java.util.InputMismatchException e) {
+				System.out.println("Looks like the value you put in is outside of what this program can handle, please remember that it has to be a number between 0 and " + Integer.MAX_VALUE);
+				System.err.println("Unrecoverable error, invalid user input. Exiting...");
+				break;
+			}
+		}
+>>>>>>> prep to pull
 	}
 }
