@@ -1,0 +1,66 @@
+@startuml
+start
+partition init{
+:define variables (quantities, internals);
+}
+repeat
+	partition input{
+	:collect payment from user;
+	:calculate total payment;
+	:add payment to total credit;
+	:display options to user;
+	:get user selection;
+	}
+	partition logic {
+	if(User wishes to exit?) then (yes)
+		if(user has remaining credit) then (yes)
+			:refund credit;
+			stop
+		else (no)
+			stop
+		endif
+	else (no)
+	endif
+	if(User Requested chips) then (yes)
+		:set price var to 125;
+		:set var selection to "Chips";
+	elseif (User Requested Cookies) then (yes)
+		:set price var to 85;
+		:set var selection to "Cookies";
+	elseif (User requested Candy) then (yes)
+		:set price var to 95;
+		:set var selection to "Candy";
+	else (Invalid request)
+		:inform user;
+		:continue;
+		detach
+	endif
+	if(User Requested chips) then (yes)
+		if(Chips remaining > 0) then (yes)
+			:remove credit;
+			:dispense chips;
+		else (no)
+			:inform user;
+		endif
+	elseif (User Requested Cookies) then (yes)
+		if(Cookies remaining > 0) then (yes)
+			:remove credit;
+			:dispense cookies;
+		else (no)
+			:inform user;
+		endif
+	elseif (User requested candy) then (yes)
+		if (Canding remaining > 0) then (yes)
+			:remove credit;
+			:dispense candy;
+		else (no)
+			:inform user;
+		endif
+	else (no)
+		:inform user of error state;
+		:continue to top of loop;
+	endif
+	}
+repeat while (!exit)
+
+@enduml
