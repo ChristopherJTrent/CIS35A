@@ -1,0 +1,18 @@
+@startuml
+partition init {
+	:define empty (or not) 3x3 board (char[][]);
+}
+partition game {
+repeat
+	:Print board to screen;
+	:get desired move from user;
+	if (desired move is valid) then (yes)
+		:Place move on board;
+		:Swap active player;
+		if (board has winner) then (yes)
+			:Inform users of winner;
+			stop
+		endif
+	endif
+repeat while(true)
+}
