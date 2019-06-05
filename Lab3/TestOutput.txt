@@ -1,0 +1,216 @@
+christopherjtrent@ATC203-A04 MINGW64 /g/vyu/CIS35A/DropBox/ChristopherJTrent_Lab3
+$ java Test
+Deadlocked game correctly identified.
+X|O|X
+-----
+X|O|X
+-----
+O|X|O
+Successfully excluded a non-full board from deadlock check
+ |O|X
+-----
+ | |O
+-----
+ |O|O
+Successfully identified a board that has a winner.
+X|X|X
+-----
+O|X|O
+-----
+X|O|X
+Successfully excluded an empty board from deadlock
+ | |
+-----
+ | |
+-----
+ | |
+Successfully excluded empty board from having a winner.
+ | |
+-----
+ | |
+-----
+ | |
+Player X, please input your move in format RC (Row, Column)
+X| |
+-----
+ | |
+-----
+ | |
+Player O, please input your move in format RC (Row, Column)
+X| |
+-----
+ |O|
+-----
+ | |
+Player X, please input your move in format RC (Row, Column)
+X|X|
+-----
+ |O|
+-----
+ | |
+Player O, please input your move in format RC (Row, Column)
+X|X|
+-----
+O|O|
+-----
+ | |
+Player X, please input your move in format RC (Row, Column)
+X|X|X
+-----
+O|O|
+-----
+ | |
+We have a winner! They are playing as X
+X|X|X
+-----
+O|O|
+-----
+ | |
+Completed xWinGame
+Player X, please input your move in format RC (Row, Column)
+X| |
+-----
+ | |
+-----
+ | |
+Player O, please input your move in format RC (Row, Column)
+X| |
+-----
+O| |
+-----
+ | |
+Player X, please input your move in format RC (Row, Column)
+X| |
+-----
+O| |
+-----
+X| |
+Player O, please input your move in format RC (Row, Column)
+X| |
+-----
+O|O|
+-----
+X| |
+Player X, please input your move in format RC (Row, Column)
+X|X|
+-----
+O|O|
+-----
+X| |
+Player O, please input your move in format RC (Row, Column)
+X|X|
+-----
+O|O|O
+-----
+X| |
+We have a winner! They are playing as O
+X|X|
+-----
+O|O|O
+-----
+X| |
+Completed oWinGame
+Player X, please input your move in format RC (Row, Column)
+X| |
+-----
+ | |
+-----
+ | |
+Player O, please input your move in format RC (Row, Column)
+That space is already filled. Please choose an empty space.
+X| |
+-----
+ | |
+-----
+ | |
+X| |
+-----
+ |O|
+-----
+ | |
+Player X, please input your move in format RC (Row, Column)
+X|X|
+-----
+ |O|
+-----
+ | |
+Player O, please input your move in format RC (Row, Column)
+X|X|
+-----
+O|O|
+-----
+ | |
+Player X, please input your move in format RC (Row, Column)
+X|X|X
+-----
+O|O|
+-----
+ | |
+We have a winner! They are playing as X
+X|X|X
+-----
+O|O|
+-----
+ | |
+Completed illegalMoveGame
+Player X, please input your move in format RC (Row, Column)
+ | |
+-----
+ |X|
+-----
+ | |
+Player O, please input your move in format RC (Row, Column)
+O| |
+-----
+ |X|
+-----
+ | |
+Player X, please input your move in format RC (Row, Column)
+O|X|
+-----
+ |X|
+-----
+ | |
+Player O, please input your move in format RC (Row, Column)
+O|X|O
+-----
+ |X|
+-----
+ | |
+Player X, please input your move in format RC (Row, Column)
+O|X|O
+-----
+X|X|
+-----
+ | |
+Player O, please input your move in format RC (Row, Column)
+O|X|O
+-----
+X|X|O
+-----
+ | |
+Player X, please input your move in format RC (Row, Column)
+O|X|O
+-----
+X|X|O
+-----
+X| |
+Player O, please input your move in format RC (Row, Column)
+O|X|O
+-----
+X|X|O
+-----
+X|O|
+Player X, please input your move in format RC (Row, Column)
+O|X|O
+-----
+X|X|O
+-----
+X|O|X
+Game Over, no player can make a legal move.
+O|X|O
+-----
+X|X|O
+-----
+X|O|X
+Completed stalemateGame

@@ -4,27 +4,44 @@ public class TicTacToe {
 	private char[/*row*/][/*col*/] board = new char[3][3];
 	private char[][] defaultBoard = {{' ', ' ', ' '},{' ', ' ', ' '},{' ', ' ', ' '}};
 	private char currentPlayer = ' ';
+	private Scanner input;
+	public static final boolean debugMode = false;
 	public TicTacToe(char[][] board, char startingPlayer){
 		this.board = board;
 		this.currentPlayer = startingPlayer;
+		this.input = new Scanner(System.in);
+	}
+	public TicTacToe(char[][] board, char startingPlayer, Scanner s){
+		this.board = board;
+		if(debugMode) System.out.println(this.board);
+		this.currentPlayer = startingPlayer;
+		this.input = s;
 	}
 	public TicTacToe(){
 		board = defaultBoard;
 		currentPlayer = 'X'; 
+		this.input = new Scanner(System.in);
 	}
 	public void drawBoard(){
 		char[][] inputBoard = this.board;
+		if (debugMode) System.out.println(inputBoard);
 		for(int i = 0; i<3;i++){
-			System.out.printf("%c|%c|%c\n"+ (i<=2?"":"______\n"), inputBoard[i][0], inputBoard[i][1], inputBoard[i][2]);
+			System.out.printf("%c|%c|%c\n", inputBoard[i][0], inputBoard[i][1], inputBoard[i][2]);
+			if(i!=2){
+				System.out.println("-----");
+			}
 		}
 	}
 	public void doMove(String location, Scanner s){
 		location = location.toUpperCase();
+		if(debugMode) System.out.println(location);
 		char row = location.charAt(0);
 		char col = location.charAt(1);
 		if(row > 'C' || col > '3' || row < 'A'|| col < '1'){
 			System.out.println("That is an invalid move, please input a move in format RC (Row, Column).");
-		        doMove(s.nextLine(), s);
+		        String next = s.nextLine();
+			if(debugMode)System.out.println(next);
+			doMove(next, s);
 			return;
 		} else {
 			int x, y;
@@ -41,6 +58,10 @@ public class TicTacToe {
 				return;
 			}
 		}
+	}
+	public void doMove(Scanner in){
+		System.out.printf("Player %c, please input your move in format RC (Row, Column)\n",this.currentPlayer);
+		doMove(in.nextLine(), in);
 	}
 	public void doMove(){
 		System.out.printf("Player %c, please input your move in format RC (Row, Column)", this.currentPlayer);
@@ -73,14 +94,11 @@ public class TicTacToe {
 	public boolean isGameStalled(){
 		boolean found = false;
 		for(int row = 0; row < 3; row++){
-			//System.out.print(row);
 			for(int column = 0; column < 3; column++){
-				//System.out.print(column);
 				if(this.board[row][column]==' '){
 					found = true;
 				}
 			}
-			//System.out.print("\n");
 		}
 		if(found){
 			return false;
@@ -88,21 +106,24 @@ public class TicTacToe {
 			return true;
 		}
 	}
-	public static void main(String[] args){
-		TicTacToe ttc = new TicTacToe();
-		while(true){
-			ttc.doMove();
-			if(ttc.hasWinner()){
-				System.out.printf("We have a winner! they are playing as %c",ttc.currentPlayer=='X'?'O':'X');
-				break;
+	public void playGame(){
+		TicTacToe gameState = this;
+		boolean continueGame = true;
+		while(continueGame){
+			gameState.doMove(gameState.input);
+			if(gameState.hasWinner()){
+				System.out.printf("We have a winner! They are playing as %c\n",gameState.currentPlayer=='X'?'O':'X');
+				continueGame = false;
 			}
-			if(ttc.isGameStalled()){
-				System.out.println("Game Over, no player can make any more moves.");
-				break;
+			else if(gameState.isGameStalled()){
+				System.out.println("Game Over, no player can make a legal move.");
+				continueGame = false;
 			}
-
 		}
 	}
-
+	public static void main(String[] args){
+		TicTacToe ttc = new TicTacToe();
+		ttc.playGame();
+	}
 }
 
