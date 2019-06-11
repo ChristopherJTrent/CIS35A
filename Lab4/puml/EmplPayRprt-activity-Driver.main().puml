@@ -1,0 +1,4 @@
+@startuml
+start
+repeat while (user wishes to continue)
+	

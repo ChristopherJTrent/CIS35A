@@ -1,0 +1,11 @@
+@startuml
+start
+if (this.hasBonusSalary) then (yes)
+	:return this.salary *1.1;
+	detach
+else
+	:return this.salary;
+	detach
+endif
+@enduml
+

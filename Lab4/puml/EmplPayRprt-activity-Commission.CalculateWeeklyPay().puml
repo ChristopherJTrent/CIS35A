@@ -1,0 +1,11 @@
+@startuml
+start
+if (this.SalesMade > 0) then (yes)
+	:return (this.CommissionPercentage * this.SalesMade);
+	detach
+else
+	:return 0;
+	detach
+endif
+@enduml
+

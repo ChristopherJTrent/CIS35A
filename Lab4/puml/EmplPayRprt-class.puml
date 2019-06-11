@@ -1,0 +1,31 @@
+@startuml
+class Driver
+Driver : + {static} void main(String[] args)
+class Employee
+Employee : -Compensation compensation
+Employee : -String FirstName
+Employee : -String LastName
+Employee : +Compensation getCompensation()
+Employee : +String getFirstName()
+Employee : +String getLastName()
+abstract class Compensation
+Compensation : -double rate
+Compensation : {abstract} +double calculateWeeklyPay()
+class Salaried
+Salaried : +void calculateWeeklyPay()
+Compensation <|-- Salaried
+class Hourly
+Hourly : -double OvertimeMultiplier
+Hourly : -double HoursWorked
+Hourly : +double calculateWeeklyPay()
+Hourly : +double getOvertimeMultiplier()
+Hourly : +double getHoursWorked()
+Compensation <|-- Hourly
+class Commissioned
+Commissioned : -double CommissionPercentage
+Commissioned : -double SalesMade
+Commissioned : +double calculateWeeklyPay()
+Commissioned : +double getCommissionPercentage()
+Commissioned : +double getSalesMade()
+Compensation <|-- Commissioned
+@enduml
