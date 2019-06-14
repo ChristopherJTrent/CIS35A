@@ -1,8 +1,18 @@
 @startuml
 start
 if (this.hoursWorked is > 0) then (yes)
-	:return this.hoursWorked * this.HourlyRate;
-	detach
+	if (this.hoursWorked is > 40) then (yes)
+		:return 
+			40 * this.HourlyRate
+			+
+			((this.hoursWorked - 40) 
+			* this.HourlyRate 
+			* this.OvertimeMultiplier);
+		detach
+	else
+		:return this.hoursWorked * this.HourlyRate;
+		detach
+	endif
 else 
 	:return 0;
 	detach
