@@ -1,19 +1,23 @@
 public class Commissioned extends Compensation {
 	private double CommissionPercentage;
 	private double SalesMade;
-<<<<<<< HEAD
 	public double calculateWeeklyPay(){
-		return this.SalesMade/this.CommissionPercentage;
-=======
+		return Math.round((this.SalesMade/this.CommissionPercentage)*100)/100;
+	}
 	public Commissioned(){
-		this.CommissionPercentage = 0.2;
+		this.CommissionPercentage = 20.0;
 		this.SalesMade=0.0;
 	}
 	public Commissioned(double SalesMade){
 		this.SalesMade = SalesMade;
+		this.CommissionPercentage = 20.0;
+	}	
+	public Commissioned(double CommissionPercentage, double salesMade){
+		this.SalesMade = salesMade;
+		this.CommissionPercentage = CommissionPercentage;
 	}
-	public double calculateWeeklyPay(){
-		return this.SalesMade*this.CommissionPercentage;
->>>>>>> d50bd766d4adc73ca4ffa061168607caa4f7c9e0
+	@Override
+	public String getType() {
+		return "Commissioned";
 	}
 }
