@@ -31,8 +31,8 @@ public class Driver {
 				if (!continueFlag)
 					break;
 				System.out.println("What is the employee's Full name? (first last)");
-				String fn = s.nextLine();
-				String ln = s.nextLine();
+				String fn = s.next();
+				String ln = s.next();
 				double rate = 0.0;
 				while (true) {
 					System.out.println("What is the employee's "
@@ -46,7 +46,7 @@ public class Driver {
 				boolean bonus = false;
 				if (emplType == 1) {
 					while (true) {
-						System.out.println("Has the employee earned a bonus this week? (yes/no)");
+					System.out.println("Has the employee earned a bonus this week? (yes/no)");	
 						if (s.hasNextLine()) {
 							String in = s.nextLine();
 							if (in.toLowerCase().equals("yes") || in.toLowerCase().equals("no")) {
